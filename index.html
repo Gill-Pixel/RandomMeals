@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Were you ever unable to decide what to have for dinner? Struggle no more. Simply build up the entrees in the JavaScript code, and whenever you can't decide, just click the button!</p>
+    <button onclick="randomMeal()">Luck Of The Draw Meal</button>
+    <p class="randomMeal"></p>
+</body>
+<script>
+    // This assignment is a review of objects, using a template literal and also creating and calling functions.
+
+    // You will
+    // create objects describing meals
+    // build an array of objects,
+    // generate a random number to use as an index into the array
+    // create 2 functions that you will use to display the meal associated with the random number
+// Define meal objects
+const entree1 = {
+    starter: "Bacon Cheese Fries",
+    main: "Beef Burger and Coleslaw",
+    dessert: "Deep Fried Ice-Cream"
+};
+
+const entree2 = {
+    starter: "Smoked Salmon On Rye",
+    main: "Vegetarian Couscous Rolls",
+    dessert: "Fruit Plate"
+};
+
+const entree3 = {
+    starter: "Chips and Hummus",
+    main: "Grilled Chicken in Hot Sauce",
+    dessert: "Chocolate Ganache Cake"
+};
+
+// Add more meal objects if needed
+
+// Update the array of meals
+const meals = [entree1, entree2, entree3];
+
+// Function to get a random number between 0 and the last valid index
+const getRandomMealNumber = function () {
+    return Math.floor(Math.random() * meals.length);
+};
+
+// Function to display the meal information
+const showMeal = (mealNumber) => {
+    let str = `Start with ${meals[mealNumber].starter}, 
+followed by ${meals[mealNumber].main}, 
+and finish off your meal with ${meals[mealNumber].dessert}`;
+
+    let area = document.querySelector(".randomMeal");
+    area.innerHTML = str;
+};
+
+// Function to generate a random meal
+const randomMeal = function () {
+    let mealNumber = getRandomMealNumber();
+    showMeal(mealNumber);
+};
+
+// Initial display (optional)
+randomMeal();
+</script>
+</html>
